@@ -1,4 +1,3 @@
-import os
 import addStudent as AS
 import viewStudents as VS
 import searchStudent as SS

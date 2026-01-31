@@ -1,9 +1,29 @@
 import csv
 def addStudent():
-    name = input("Enter Student Name: ")
-    roll = input("Enter Roll Number: ")
-    email = input("Enter E-mail: ")
-    dept = input("Enter Department: ")
+    while True:
+        name = input("Enter Student Name: ").strip()
+        if name.replace(" ", " ").isalpha() and len(name) >= 4:
+            break
+        else:
+            print("Name must contain minimum of 4 letters. Please try again.")
+    while True:
+        roll = input("Enter Roll Number: ").strip()
+        if roll.isdigit() and len(roll) > 0:
+            break
+        else:
+            print("Roll can't be empty and must be a number. Please enter a valid roll number.")
+    while True:
+        email = input("Enter E-mail: ").strip()
+        if len(email) > 0:
+            break
+        else:
+            print("Empty input is not allowed. Please enter an valid email address.")
+    while True:
+        dept = input("Enter Department: ").strip()
+        if len(dept) > 0:
+            break
+        else:
+            print("Empty input is not allowed. Please enter a valid department name.")
     # Append the new student record to 'students.csv'
     with open('students.csv', 'a', newline='') as file:
         fieldnames = ['name', 'roll', 'email', 'dept']
