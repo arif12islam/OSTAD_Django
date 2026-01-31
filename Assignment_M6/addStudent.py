@@ -9,9 +9,18 @@ def addStudent():
     while True:
         roll = input("Enter Roll Number: ").strip()
         if roll.isdigit() and len(roll) > 0:
-            break
+            with open('students.csv', 'r') as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    if row['roll'] == roll:
+                        print(f"A student with roll number {roll} already exists. Please enter a unique roll number.")
+                        roll = None
+                        break
+                if roll is not None:
+                    break
         else:
             print("Roll can't be empty and must be a number. Please enter a valid roll number.")
+        
     while True:
         email = input("Enter E-mail: ").strip()
         if len(email) > 0:

@@ -15,9 +15,12 @@ def removeStudent():
     if not found:
         print(f"No student record with the roll of {term} was found!")
     # If found, rewrite the file without the removed student
-    if found:
+    confirm = input(f"Are you sure you want to delete the student with roll {term}?(y/n): ")
+    if confirm == 'y':
         with open('students.csv', 'w', newline='') as file:
             writer = csv.DictWriter(file, fieldnames = fieldnames)
             writer.writeheader()
             writer.writerows(students)
         print(f"Student with roll {term} removed successfully!")
+    else:
+        print("Operation terminated!")
