@@ -2,7 +2,7 @@ import csv
 def addStudent():
     while True:
         name = input("Enter Student Name: ").strip()
-        if name.replace(" ", " ").isalpha() and len(name) >= 4:
+        if name.replace(" ", "").isalpha() and len(name) >= 4:
             break
         else:
             print("Name must contain minimum of 4 letters. Please try again.")
